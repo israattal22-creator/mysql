@@ -45,6 +45,42 @@ SELECT * FROM publishers;
 SELECT * FROM books;
 
 SELECT publisher_id FROM books WHERE title = 'whale';
+-- outer jion
+-- right outer join 
+SELECT * FROM sea_lions RIGHT OUTER JOIN magration ON sea_lions.id = migrations .id;
+
+-- left outer join 
+
+SELECT * FROM sea_lions LEFT OUTER JOIN migration ON sea_lions.id = migration.id;
+
+-- full outer jion 
+
+SELECT * FROM sea_lions RIGHT OUTER JOIN migrations ON sea_lions.id = migrations.id
+UNION
+SELECT * FROM sea_lions LEFT OUTER JOIN MIGRATION ON sea_lions.id = migration.id;
+
+select * FROM translators;
+
+select * FROM autors;
+
+
+SELECT name FROM authors
+INTERSECT
+SELECT name FROM translators;
+
+
+SELECT name FROM authors
+EXCPET
+SELECT name FROM translators;
+
+-- GROUP BY
+
+SELECT * FROM ratings;
+
+SELECT books_id, avg(ratings) as avg_ratings FROM ratings GROUP BY book_id;
+
+
+
 
 SELECT * FROM publishers WHERE id = 3;
 
