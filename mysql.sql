@@ -80,11 +80,73 @@ SELECT * FROM ratings;
 SELECT books_id, avg(ratings) as avg_ratings FROM ratings GROUP BY book_id;
 
 
-
-
 SELECT * FROM publishers WHERE id = 3;
 
 
 SELECT * FROM publishers WHERE id = (
 SELECT publisher_id FROM books WHERE title = 'whale'
 );
+
+CREATE TABLE riders (
+id INT AUTO_INCREMENT(255),
+name VARCHAAR(255),
+PRIMARY KEY (id)
+);
+
+
+CREATE TABLE stations (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255),
+line VARCHAR(255)
+);
+
+INSERT INTO riders(name) VALUE ('asma');
+INSERT INTO riders(name) VALUE ('yasir');
+INSERT INTO riders(name) VALUE ('hamza');
+INSERT INTO riders(name) VALUE ('shakeela');
+
+SELECT * FROM riders;
+
+CREATE TABLE visits(
+rider_id INT,
+station_id INT,
+FOREIGN KEY (rider_id) REFERENCES riders(id)
+FOREIGN KEY (station_id) REFERENCES stations(id)
+);
+
+CREATE TABLE card(
+id INT PRIMARY KEY
+);
+
+CREATE TABLE swipe(
+id INT,
+card_id INT,
+station_id INT,
+type TEXT NOT NULL CHECK(type in ('enter','exit','deposit')),
+date_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+amount INT NOT NULL CHECK (amount !=0),
+FOREIGN KEY (card_id) REFERENCES card(id),
+FOREIGN KEY (station_id) REFERENCES stations(id)
+);
+
+CREATE TABLE students(
+id INT,
+studentname VARCHAR(255),
+cnic INT
+);
+
+SELECT * FROM students;
+
+ALTER TABLE students DROP COLUMN cnic;
+
+ALTER TABLE students ADD COLUMN studentage INT;
+ALTER TABLE students ADD COLUMN studentclass INT;
+
+ALTER TABLE students MODIFY COLUMN studentclass VARCHAR(255);
+
+
+ALTER TABLE students DROP CONSTRAINT PRIMARY KEY;
+
+
+ALTER TABLE students ADD CONSTRAINT PRIMARY KEY(id);
+
