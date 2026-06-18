@@ -153,3 +153,15 @@ ALTER TABLE students ADD CONSTRAINT PRIMARY KEY(id);
 
 ALTER TABLE stud CHANGE COLUMN studentname studname VARCHAR(255);
 
+CREATE TABLE collections(
+id INT PRIMARY KEY AUTO_INCREMENT,
+accession_number FLOAT,
+acquuried VARCHAR(255)
+);
+ALTER TABLE collections ADD COLUMN title VARCHAR(255) AFTER id;
+INSERT INTO collections(title, accession_number, acquuried) VALUEs
+('profusion of flowers',56.257,'1956-04-12'),
+('farmers working at down',11.6152,'1911-08-03'),
+('spring outing',14.76,'1914-01-08');
+
+SELECT * FROM collections;
