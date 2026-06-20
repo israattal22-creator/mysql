@@ -165,3 +165,9 @@ INSERT INTO collections(title, accession_number, acquuried) VALUEs
 ('spring outing',14.76,'1914-01-08');
 
 SELECT * FROM collections;
+
+
+INSERT INTO collections (title, accession_number, acquired)
+SELECT stidentname, studentage, studentclass FROM stud;
+
+DELETE FROM collections;
