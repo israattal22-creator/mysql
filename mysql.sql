@@ -171,3 +171,45 @@ INSERT INTO collections (title, accession_number, acquired)
 SELECT stidentname, studentage, studentclass FROM stud;
 
 DELETE FROM collections;
+INSERT INTO collections (title, accession_number, acquired)
+SELECT stidentname, studentage, studentclass FROM stud;
+
+DELETE FROM collections WHERE title = 'spring outing';
+
+INSERT INTO collections(title, accession_number, acquired) VALUE 
+('poeines and butterfly',06.1899,'1906-01-01'),
+('tile lunette',096.2437,'1906-11-08'),
+('statuette of a shrew',01.105,'1901-02-11');
+
+DELETE * FROM collections WHERE id BETWEEN 5 AND 11;
+
+DELETE FROM collections WHERE id IN (4,13,15);
+
+
+CREATE TABLE employees(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255),
+department VARCHAR(255),
+designation VARCHAR(255),
+phone_number  BIGINT
+);
+
+SELECT * FROM employees;
+
+INSERT INTO employees(name,department,designation,phone_number) values
+("faiq","IT","manager","03458756201"),
+("asma","admin","admin","03458756201"),
+("sohil","teacher","dm","03458756201"),
+("naeem","watchman","gatekeper","03458756201"),
+("naila","fc","soldier","03458756201"),
+("shabnam","bank","cashier","03458756201"),
+("nighat","police","ISI","03458756201");
+
+CREATE TABLE PHNO(
+phone_number INT AUTO_INCREMENT PRIMARY KEY
+);
+
+SELECT* FROM PHNO;
+
+INSERT INTO PHNO(phone_number) VALUES
+('03406364205');
