@@ -213,3 +213,36 @@ SELECT* FROM PHNO;
 
 INSERT INTO PHNO(phone_number) VALUES
 ('03406364205');
+ SELECT * FROM collections; 
+ 
+ CREATE TABLE artist(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ name VARCHAR(255)
+ );
+
+INSERT INTO artist(name) VALUES
+("li yan"),
+("qien wecheng"),
+("ndifined artists"),
+("zohu chen");
+
+SELECT * FROM artist;
+ 
+ DROP TABLE created;
+ 
+ CREATE TABLE created(
+ artist_id INT,
+ collection_id INT,
+ FOREIGN KEY ( artist_id) REFERENCES artist(id) ON DELETE CASCADE,
+  FOREIGN KEY ( collection_id) REFERENCES collrction(id) ON DELETE CASCADE
+ );
+
+INSERT INTO created (artist_id,collection_id) VALUES 
+(2,17),
+(3,19),
+(4,16),
+(1,20);
+
+SELECT * FROM created;
+
+DELETE FROM artists WHERE NAME ='undefined artists';
