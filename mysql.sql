@@ -246,3 +246,20 @@ INSERT INTO created (artist_id,collection_id) VALUES
 SELECT * FROM created;
 
 DELETE FROM artists WHERE NAME ='undefined artists';
+
+
+SELECT * FROM collections;
+
+ALTER TABLE collections ADD COLUMN deleted int default 0;
+ALTER TABLE collections DROP COLUMN deleted;
+
+UPDATE collections SET deleted =1 WHERE title ="spring outing";
+UPDATE collections SET deleted =1 WHERE title ="tile luntee";
+
+SELECT id, title, accession_number, acquuried  FROM collections WHERE deleted = 0;
+
+ CREATE VIEW collectionsview
+ AS
+SELECT id, title, accession_number, acquuried  FROM collections WHERE deleted = 0;
+
+SELECT * FROM collectionsview;
